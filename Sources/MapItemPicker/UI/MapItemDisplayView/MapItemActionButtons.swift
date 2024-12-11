@@ -7,7 +7,7 @@ struct MapItemActionButtons: View {
         static let spacing: CGFloat = 8
     }
     
-    let coordinator: MapItemPickerController
+    let coordinator: MapItemPickerController?
     let item: MapItem
     let primaryAction: MapItemPickerAction
     let actions: [MapItemPickerAction]
@@ -17,7 +17,7 @@ struct MapItemActionButtons: View {
     struct Single: View {
         @Environment(\.colorScheme) var colorScheme
         
-        let coordinator: MapItemPickerController
+        let coordinator: MapItemPickerController?
         let item: MapItem
         
         let imageName: String
@@ -59,8 +59,8 @@ struct MapItemActionButtons: View {
             case .single(let action):
                 Button {
                     if action(item) {
-                        coordinator.manuallySet(selectedMapItem: nil)
-                        coordinator.searcher.searchTerm = .empty
+                        coordinator?.manuallySet(selectedMapItem: nil)
+                        coordinator?.searcher.searchTerm = .empty
                     }
                 } label: { inner }
             case .subActions(let subActions):
