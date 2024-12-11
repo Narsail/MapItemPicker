@@ -11,6 +11,8 @@ public struct MapItemDisplayView: View {
     public init(mapItem: MapItem, shouldScroll: Bool) {
         self.mapItem = mapItem
         self.shouldScroll = shouldScroll
+        self.primaryAction = nil
+        self.actions = []
     }
 
     public init(
